@@ -1,7 +1,6 @@
 package arrays;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 //Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target.
 //You may assume that each input would have exactly one solution, and you may not use the same element twice.
@@ -12,27 +11,72 @@ public class tripletSum {
 
     public static void main(String[] args) {
 
-        int[] arr1 = {3, 4, 7, 6};
+        int[] arr1 = {-1,0,1,2,-1,-4};
 
-        int[] res = tripletSum (arr1, 10);
+        List<List<Integer>> res = tripletSumOptimized (arr1);
 
-        for (int x: res) System.out.print(x+" ");
+        System.out.println(res);
 
     }
 
-    // the most optimum solution
-    public static int[] tripletSum(int[] nums, int target) {
+    public static List<List<Integer>> tripletSumOptimized (int[] arr) {
 
-        Map<Integer, Integer> map = new HashMap<Integer, Integer>();
+        Arrays.sort(arr);
 
-        for (int i=0; i<nums.length; i++) {
-            int complement = target - nums[i];
-            if (map.containsValue(complement)) {
-                return new int[]{complement, nums[i]};
+        List<List<Integer>> res = new ArrayList<>();
+
+        int len = arr.length;
+
+        for (int i=0; i<len; i++) {
+
+            if (i > 0 && arr[i] == arr[i-1] ) {
+                continue;
             }
-            map.put(i, nums[i]);
-        }
-        return new int[]{};
 
+            int j = i+1;
+            int k = len-1;
+
+            while (j < k) {
+                int sum = arr[i] + arr[j] + arr[k];
+                if (sum == 0) {
+                    res.add(List.of(arr[i], arr[j], arr[k]));
+                    while (j<k && arr[j] == arr[j+1]) j++;
+                    while (j<k && arr[k] == arr[k-1]) k--;
+
+                    j++;
+                    k--;
+                }
+                else if (sum < 0) {
+                    j++;
+                }
+                else {
+                    k--;
+                }
+            }
+        }
+
+        return res;
+    }
+
+
+    public static List<List<Integer>> tripletSumBF (int[] arr) {
+        List<List<Integer>> ans = new ArrayList<>();
+        int len = arr.length;
+        for (int i=0; i<len; i++) {
+            for (int j=i+1; j<len; j++) {
+                for (int k=j+1; k<len; k++) {
+                    if (arr[i] + arr[j] + arr[k] == 0) {
+                        List<Integer> temp = Arrays.asList(arr[i], arr[j], arr[k]);
+
+                        // avoid duplicates in different order
+                        Collections.sort(temp);
+                        if (!ans.contains(temp)) {
+                            ans.add(temp);
+                        }
+                    }
+                }
+            }
+        }
+        return ans;
     }
 }
