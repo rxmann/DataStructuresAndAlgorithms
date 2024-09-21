@@ -24,7 +24,6 @@ public class searchInRotatedSorted {
             }
             // sorted and lies in the left part
             else if (arr[start] <= arr[mid]) {
-                System.out.println("left: " + start + " - " + mid + " - " + end);
                 if (arr[start] <= target && arr[mid] >= target) {
                     end = mid;
                 } else {
@@ -33,7 +32,6 @@ public class searchInRotatedSorted {
             }
             // right part is sorted
             else {
-                System.out.println("right: " + start + " - " + mid + " - " + end);
                 if (arr[mid] <= target && arr[end] >= target) {
                     start = mid;
                 } else {

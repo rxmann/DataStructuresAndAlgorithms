@@ -2,7 +2,6 @@ package binary_search;
 
 public class sqrtOfX {
     public static void main(String[] args) {
-//        2147395599
         double ans  = squareRootOfFloatingPoints(31, 3);
         System.out.println("Square root: " + ans);
     }
@@ -12,33 +11,32 @@ public class sqrtOfX {
     // square root of floating points numbers
     private static double squareRootOfFloatingPoints (int n, int precision) {
 
-        // Step 1: Get the integer part of the square root (assumed to be implemented)
+        // Step 1: int square root
         double intSqrt = squareRootOfInt(n);
 
-        // Step 2: Set precision and limits for binary search
-        double low = intSqrt;
-        double high = intSqrt + 1; // Look between intSqrt and the next integer
+        // Step 2: Set limits to find precision through binary search
+        double start = intSqrt;
+        double end = intSqrt + 1;
+
         double mid = 0.0;
 
-        // Factor to determine precision, e.g., 0.001 for 3 decimal places
+        // Factor to determine precision
+        // start with utmost precision of 10 ^ -3
         double precisionFactor = Math.pow(10, -precision);
 
         // Step 3: Perform binary search to refine the square root
-        while ((high - low) > precisionFactor) {
-            mid = (low + high) / 2;
-            if (mid * mid > n) {
-                high = mid;
-            } else {
-                low = mid;
+        while ((end-start) > precisionFactor) {
+            mid = start + (end - start) / 2;
+            if (mid < n/mid) {
+                start = mid;
+            }
+            else {
+                end = mid;
             }
         }
-
-        // Return result rounded to 3 decimal places
         return Math.round(mid * Math.pow(10, precision)) / Math.pow(10, precision);
-
-cls
-
     }
+
 
 
 
@@ -53,7 +51,6 @@ cls
         while (start <= end) {
             int mid = start + (end-start) / 2;
 //            System.out.println(start + " : " + mid + " : " + end);
-//
             if (mid < n/mid) {
                 start = mid + 1;
             }
