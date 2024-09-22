@@ -35,7 +35,7 @@ Bubble sort is a straight forward yet inefficient sorting algorithm. It operates
 
 -Steps:
 1. Start iterating from the first element (i = 0).
-2. For each element (i), iterate again from the next element (j = i + 1).
+2. For each element (i), iterate again from the next element (j = 0 to j < n - i - 1).
 3. If the element at position j is smaller than the element at position i, swap them.
 4. Repeat steps 1-3 until no more swaps are made in a pass. This indicates that the array is sorted.
 
