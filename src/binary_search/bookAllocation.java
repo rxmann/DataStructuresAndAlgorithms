@@ -14,15 +14,18 @@ public class bookAllocation {
 
     private static int allocateBooks(int[] books, int students) {
 
-        int start = 0;
+        int start = books[0];
         int end = 0;
         // calculate the end range of books pages
-        for (int x: books) end+=x;
+        for (int x: books) {
+            end+=x;
+            start = Math.max(start, x);
+        }
 
         int ans = 0;
 
         // now binary search from page 0 to totalPages
-        while (start < end) {
+        while (start <= end) {
             int mid = start + (end - start) / 2;
             if ( isPossibleToAllocate(books, students, mid) ) {
                 ans = mid;
