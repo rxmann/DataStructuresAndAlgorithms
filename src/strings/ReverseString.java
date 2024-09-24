@@ -1,39 +1,27 @@
-import java.io.*;
-import java.util.*;
+package strings;
 
 public class ReverseString {
 
-    public static void main(String[] args) {
-        
-        Scanner sc=new Scanner(System.in);
-        String A=sc.next();
-        /* Enter your code here. Print output to STDOUT. */
-       
-       int i = 0;
-       int j = A.length() - 1;
-       
-       int isEqual = 0;
-       
-       while (i < j) {
-               
-               if (A.charAt(i) == A.charAt(j)) {
-                      isEqual = 0; 
-               }
-               else {
-                       isEqual = 1;
-                       break;
-               }
-               
-               i++;
-               j--;
-       }
+    public static void reverseString(char[] s) {
+        int start = 0;
+        int end = s.length - 1;
 
-
-        
-        if (isEqual == 0) {
-                System.out.println("Yes");
+        while (start < end) {
+            char temp = s[start];
+            s[start] = s[end];
+            s[end] = temp;
+            start++;
+            end--;
         }
-        else System.out.println("No");
+
+    }
+
+    public static void main(String[] args) {
+
+        char[] strArr = {'a', 'd', 'o', 'l', 'f'};
+        reverseString(strArr);
+
+        System.out.println(strArr);
     }
 }
 

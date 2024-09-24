@@ -1,5 +1,6 @@
+package strings;
+
 import java.util.*;
-import java.io.*;
 
 public class Anagrams {
 
