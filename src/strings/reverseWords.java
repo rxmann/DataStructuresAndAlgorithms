@@ -5,7 +5,7 @@ public class reverseWords {
     public static void main(String[] args) {
         String str = "the sky is blue";
 
-        str = reverseWordsInString(str);
+        str = reverseWordsStr(str);
 
         System.out.println(str);
 
@@ -24,6 +24,24 @@ public class reverseWords {
         }
         return String.join(" ", arr);
 
+    }
+
+
+    public static String reverseWordsStr(String s) {
+
+        String[] words = s.trim().split("\\s+");
+        StringBuilder sb = new StringBuilder();
+
+        for (int i=words.length - 1; i>=0; i--) {
+            sb.append(words[i]);
+            
+            if (i > 0) {
+                sb.append(" ");
+            }
+            
+        }
+
+        return  sb.toString();
     }
 
 }
