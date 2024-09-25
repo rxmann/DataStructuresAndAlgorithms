@@ -1,8 +1,6 @@
 package strings;
 
-import java.util.Stack;
-
-public class removeSubstring {
+public class removeOccurrence {
 
     public static void main(String[] args) {
         String str = "aabababa";
