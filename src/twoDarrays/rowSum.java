@@ -1,11 +1,8 @@
 package twoDarrays;
 
 import java.util.Arrays;
-import java.util.Scanner;
 
 public class rowSum {
-
-    static Scanner sc = new Scanner(System.in);
 
     public static void main(String[] args) {
 
@@ -19,7 +16,6 @@ public class rowSum {
         // get largest row sum
         int ans = largestRowSum(arr);
         System.out.println("Largest Row sum: " + ans);
-
 
     }
 
