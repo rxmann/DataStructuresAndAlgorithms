@@ -8,10 +8,34 @@ import java.util.List;
 // Sieve of Eratosthenes
 
 
-public class seiveEratosthenes {
+public class sieveEratosthenes {
 
 
+    // count
+    private static int findPrimeCounts (int N) {
 
+        boolean[] isPrime =  new boolean[N+1];
+
+        int count = 0;
+
+        for (int i = 2; i * i <= N; i++) {  // Loop from 2 to sqrt(N)
+
+            // If current number is prime
+            if (!isPrime[i]) {
+
+                // Start marking multiples of i from i * i, since smaller multiples are already marked
+                for (int j = i * i; j < N; j += i) {
+                    isPrime[j] = true;
+                    count++;
+                }
+            }
+        }
+
+        return count;
+    }
+
+
+    // list
     private static List<Integer> findPrimeSOE(int N) {
 
         boolean[] isPrime =  new boolean[N+1];
@@ -34,7 +58,7 @@ public class seiveEratosthenes {
 
         List<Integer> result = new ArrayList<>();
 
-        for (int i=0; i<N; i++) {
+        for (int i=2; i<N; i++) {
             if (isPrime[i]) {
                 result.add(i);
             }
@@ -45,8 +69,10 @@ public class seiveEratosthenes {
 
 
     public static void main(String[] args) {
-        List<Integer> ans = findPrimeSOE(10);
-        System.out.println(ans);
+//        List<Integer> ans = findPrimeSOE(10);
+//        System.out.println(ans);
+        int count = findPrimeCounts(10);
+        System.out.println(count);
     }
 
 
