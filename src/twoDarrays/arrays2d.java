@@ -1,6 +1,8 @@
 package twoDarrays;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Scanner;
 
 public class arrays2d {
@@ -12,6 +14,13 @@ public class arrays2d {
         // Initialization and declaration
         int[][] arr2d = new int[3][3];
         int[][] arr = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+
+        // dynamic 2d array
+        ArrayList<ArrayList<Integer>> dynamicMatrix = new ArrayList<ArrayList<Integer>>(3);
+        dynamicMatrix.add(new ArrayList<>(List.of(5, 10, 15)));
+        dynamicMatrix.add(new ArrayList<>(List.of(20, 25, 30)));
+
+//        System.out.println(dynamicMatrix);
 
         // printing
         System.out.println(Arrays.deepToString(arr));
