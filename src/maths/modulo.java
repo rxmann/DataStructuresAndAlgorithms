@@ -12,31 +12,23 @@ public class modulo {
     public static long fastExpo(long x, long n) {
         long result = 1;
         while (n > 0) {
-            if ((n & 1) == 1) result *= x; // If n is odd
-            x *= x; // Square the base
-            n >>= 1; // Divide exponent by 2
+            // odd exponent
+            // System.out.println("Result: " + result + " X: " + x + " N: " + n );
+            if ((n & 1) == 1) {
+                result *= x;
+            }
+            // Square the base
+            x *= x;
+            // Divide exponent by 2
+            n >>= 1;
         }
         return result;
     }
 
-    // a power b
-    static void fastExponentiation (int x, int n) {
-
-        int res = 1;
-        while (n > 0) {
-            if ((n&1) == 1) {
-                res *= x;
-            }
-            x *= x;
-            n = n>>1;
-        }
-
-        System.out.println(res);
-    }
 
     public static void main(String[] args) {
 
-        fastExponentiation(2, 2);
+        System.out.println(fastExpo(2, 10));
 
     }
 
