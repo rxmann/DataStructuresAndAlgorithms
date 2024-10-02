@@ -29,7 +29,7 @@ Selection sort is simple but not efficient algorithm for huge data. It works by 
 
 ## Bubble Sort
 
-Bubble sort is a straight forward yet inefficient sorting algorithm. It operates by repeatedly comparing adjacent elements in an array and swapping them if they are out of order. It has the time Complexity of O(n^2) and sapce complexity of O(1). It has more number of swaps than selection sort.
+Bubble sort is a straight forward yet efficient sorting algorithm. It operates by repeatedly comparing adjacent elements in an array and swapping them if they are out of order. It has the time Complexity of O(n^2) and space complexity of O(1). It has more number of swaps than selection sort.
 
 **Usecase:** Small array size, Memory limit
 
