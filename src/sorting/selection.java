@@ -9,8 +9,8 @@ public class selection {
     public static void main(String[] args) {
         int[] arr = { 12, 15, 10, 6, 3, 5, 4, 2 };
 
-        selectionSort(arr);
-
+        // selectionSort(arr);
+        selectionSortRecursion(arr, 0);
         System.out.println(Arrays.toString(arr));
     }
 
@@ -30,6 +30,30 @@ public class selection {
             arr[minIdx] = temp;
         }
 
+    }
+
+
+    private static void selectionSortRecursion (int[] arr, int idx) {
+
+        if (idx == arr.length-1) {
+            return;
+        }
+
+        int minIdx = idx;
+        // iterate from sorted to end of array to find the minimum value's index
+        for (int i=idx+1; i<arr.length; i++) {
+            if (arr[i] < arr[minIdx]) {
+                // mark the minimum value
+                minIdx = i;
+            }
+        }
+
+        // swap with the current index
+        int temp = arr[idx];
+        arr[idx] = arr[minIdx];
+        arr[minIdx] = temp;
+
+        selectionSortRecursion(arr, ++idx);
     }
 
 
