@@ -34,7 +34,7 @@ public class quick {
             }
         }
 
-        // swap pivot with new pivot iDX
+        // swap pivot with new pivot idx
         int temp = arr[pivotIdx];
         arr[pivotIdx] = arr[start];
         arr[start] = temp;
