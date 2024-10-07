@@ -1,72 +1,47 @@
-import java.util.*;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class Main {
 
-    static void quickSortAlgo(int[] arr, int start, int end) {
-
-        // base case
-        if (start >= end) return;
-
-        // find the pivot element and partition he array with
-        // elements smaller at left and others at right of pivott elementt
-        int pivotIndex = partitionArr(arr, start, end);
-
-        quickSortAlgo(arr, start, pivotIndex - 1);
-        quickSortAlgo(arr, pivotIndex+1, end);
-
-    }
-
-    private static int partitionArr(int[] arr, int start, int end) {
-
-
-        int pivot = arr[start];
-        int pivotIdx = start;
-
-        // get the pivot Index: count all smaller elements within range
-        for  (int i = start+1; i<=end; i++) {
-            if (pivot >= arr[i]) pivotIdx++;
-        }
-
-        // swap the element at index 1 and pivot index found
-        int temp = arr[pivotIdx];
-        arr[pivotIdx] = arr[start];
-        arr[start] = temp;
-
-        // now arrange the arr in order of smaller to left and larger to right of pivot
-        int i=start; int j = end;
-        while (i < pivotIdx && j > pivotIdx) {
-            while (arr[i] < pivot) {
-                i++;
-            }
-            while (arr[j] > pivot) {
-                j--;
-            }
-            if (i < pivotIdx && j > pivotIdx) {
-                int tempInt = arr[i];
-                arr[i] = arr[j];
-                arr[j] = tempInt;
-                i++;
-                j--;
-            }
-        }
-
-        return pivotIdx;
-    }
-
+    // key map to get the digit's alphabets
+    static final String[] KEYMAP = {"", "", "abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz"};
 
     public static void main(String[] args) {
 
-        int[] arr = {3, 5, 4, 1, 2};
-        quickSortAlgo (arr, 0, arr.length-1);
-        System.out.println(Arrays.toString(arr));
-
+        List<String> ans = letterCombinations("23");
+        System.out.println(ans);
     }
 
+    public static List<String> letterCombinations(String digits) {
 
+        // Store all possible combinations when pressed a series of digits
+        List<String> combinations = new ArrayList<>();
+        solveLetterCombination(digits, 0, combinations, new StringBuilder());
 
+        return combinations;
+    }
 
+    private static void solveLetterCombination(String digits, int idx, List<String> combinations, StringBuilder sequence) {
+        // base case
+        if (idx >= digits.length()) {
+            combinations.add(sequence.toString());
+            return;
+        }
 
+        // get the digit at the current index
+        int digit = digits.charAt(idx) - '0';
+        // get the string value of the digit [2: "abc"]
+        String strValue = KEYMAP[digit];
 
+        // now that we have a string value of a digit, we can loop through each of them to get
+        // recursion
+        for (char ch: strValue.toCharArray()) {
+            sequence.append(ch);
+            solveLetterCombination(digits, idx+1, combinations, sequence);
+            sequence.deleteCharAt(sequence.length() - 1);
+        }
 
+    }
 
 }

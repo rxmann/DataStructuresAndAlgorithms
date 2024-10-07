@@ -29,7 +29,7 @@ public class subsets {
     private static void solve(int[] nums, List<Integer> subset, int idx, List<List<Integer>> res) {
         // base case: if we've considered all elements
         if (idx >= nums.length) {
-            System.out.println(res);
+//            System.out.println(res);
             res.add(new ArrayList<>(subset));
             return;
         }
