@@ -1,84 +1,73 @@
 package recursion;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class ratInMaze {
 
     public static void main(String[] args) {
         int[][] matrix = {{1, 0, 0, 0}, {1, 1, 0, 1}, {1, 1, 0, 0}, {0, 1, 1, 1}};
-        ArrayList<String> ans = ratInMazeRecursion(matrix);
+        System.out.println(Arrays.deepToString(matrix));
+        ArrayList<String> ans = ratInMaze(matrix, matrix.length, matrix[0].length);
         System.out.println(ans);
     }
 
-    private static ArrayList<String> ratInMazeRecursion(int[][] matrix) {
+    private static ArrayList<String> ratInMaze(int[][] matrix, int rowSize, int columnSize) {
 
         if (matrix[0][0] == 0) return new ArrayList<>();
 
         ArrayList<String> result = new ArrayList<>();
-
         boolean[][] visited = new boolean[matrix.length][matrix[0].length];
 
-        solveMaze(matrix, matrix.length, matrix[0].length, 0, 0, visited, result, "");
+        solveRatInMaze (matrix, rowSize, columnSize, result, "", 0, 0, visited);
 
         return result;
     }
 
-
-    // recursive method to traverse through the matrix
-    private static void solveMaze(int[][] matrix, int m, int n, int srcX, int srcY, boolean[][] visited, List<String> result, String path) {
-
+    private static void solveRatInMaze(int[][] matrix, int rowSize, int columnSize, ArrayList<String> result, String path, int x, int y, boolean[][] visited) {
+        System.out.println("solveRatInMaze(matrix, " + rowSize + ", " + columnSize + ", result, \"" + path + "\", " + x + ", " + y + ", visited);");
         // base case
-        if (srcX == m - 1 && srcY == n - 1) {
+        if ( x == rowSize-1 && y == columnSize-1) {
+            System.out.println("Destination Reached!!!");
             result.add(path);
             return;
         }
 
-        visited[srcX][srcY] = true;
+        // recursive calls
+        // mark the current place as visited
+        visited[x][y] = true;
 
-        // go down
-        int x = srcX + 1;
-        int y = srcY;
-        if (isTraversable(matrix, m, n, visited, x, y)) {
-            solveMaze(matrix, m, n, x, y, visited, result, path + 'D');
+        // explore all direction where valid
+        // DOWN
+        if (canTravel(matrix, rowSize, columnSize, x+1, y, visited)) {
+            solveRatInMaze(matrix, rowSize, columnSize, result, path+'D', x+1, y, visited);
         }
-
-        // go right
-        x = srcX;
-        y = srcY + 1;
-        if (isTraversable(matrix, m, n, visited, x, y)) {
-            solveMaze(matrix, m, n, x, y, visited, result, path + 'R');
+        // RIGHT
+        if (canTravel(matrix, rowSize, columnSize, x, y+1, visited)) {
+            solveRatInMaze(matrix, rowSize, columnSize, result, path+'R', x, y+1, visited);
         }
-
-        // go left
-        x = srcX;
-        y = srcY - 1;
-        if (isTraversable(matrix, m, n, visited, x, y)) {
-            solveMaze(matrix, m, n, x, y, visited, result, path + 'L');
+        // LEFT
+        if (canTravel(matrix, rowSize, columnSize, x, y-1, visited)) {
+            solveRatInMaze(matrix, rowSize, columnSize, result, path+'L', x, y-1, visited);
         }
-
-        // go up
-        x = srcX - 1;
-        y = srcY;
-        if (isTraversable(matrix, m, n, visited, x, y)) {
-            solveMaze(matrix, m, n, x, y, visited, result, path + 'U');
+        // UP
+        if (canTravel(matrix, rowSize, columnSize, x-1, y, visited)) {
+            solveRatInMaze(matrix, rowSize, columnSize, result, path+'U', x-1, y, visited);
         }
-
-        visited[srcX][srcY] = false; // backtrack
+        visited[x][y] = false;
     }
 
+    private static boolean canTravel(int[][] matrix, int rowSize, int columnSize, int x, int y, boolean[][] visited) {
 
-    // Method to check the possibility of traversal in the new X AND Y coordinate or index
-    private static boolean isTraversable(int[][] matrix, int m, int n, boolean[][] visited, int x, int y) {
-
-        // check for a valid index in side the matrix
-        if ((x < m && x >= 0) && (y >= 0 && y < n)) {
-            // if the index is open and not visited
-            if (matrix[x][y] == 1 && (!visited[x][y])) {
-                return true;
-            }
+        // if the path lies within the row and column size
+        // if the path is not visited
+        // if the path is open value = 1
+        if ((x >= 0 && x < rowSize) && (y >=0 && y < columnSize)) {
+            return !visited[x][y] && matrix[x][y] == 1;
         }
 
         return false;
     }
+
 }
