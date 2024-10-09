@@ -63,6 +63,8 @@ public class segmentedSieve {
                 int currentPrime = primes.get(i);
 
                 // Find the first multiple of currentPrime in the current segment
+                // because we have to find the primes in this range
+                // start , start+1, start+2, start+3, ... end-2, end-1, end.
                 int lowPrime = Math.max(currentPrime * currentPrime, (start / currentPrime) * currentPrime);
                 if (lowPrime < start) lowPrime += currentPrime;
 
