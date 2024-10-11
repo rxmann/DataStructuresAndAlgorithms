@@ -1,19 +1,11 @@
 package LinkedList;
 
-// Node class
-class Node {
-    int data;
-    Node next;
 
-    Node(int data) {
-        this.data = data;
-        this.next = null;
-    }
-}
 
 // Custom Linked List class
 public class CustomLinkedList {
-    private Node head;
+
+    Node head;
 
     // Insert at the head
     public void insertAtHead(int data) {
