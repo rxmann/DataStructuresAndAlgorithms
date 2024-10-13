@@ -1,5 +1,8 @@
 package LinkedList;
 
+import java.util.HashMap;
+import java.util.Map;
+
 // Custom Linked List class
 public class CircularLinkedList {
 
@@ -49,13 +52,22 @@ public class CircularLinkedList {
     public void displayCLL () {
 
         if (head == null) return;
-
+        Map<Node, Boolean> visited = new HashMap<>();
         Node current = head;
-        do {
+        while (!visited.containsKey(current) || current != null) {
+            if (visited.containsKey(current)) {
+                System.out.println(current.data);
+                break;
+            }
+            if (current == null) {
+                System.out.println("null");
+                break;
+            }
             System.out.print(current.data + " -> ");
+            visited.put(current, true);
             current = current.next;
-        } while (current != head);
-        System.out.print(head.data);
+        }
+
     }
 
     public static void main(String[] args) {
