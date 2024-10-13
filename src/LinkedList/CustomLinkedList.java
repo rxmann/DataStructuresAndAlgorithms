@@ -100,4 +100,10 @@ public class CustomLinkedList {
         System.out.println("After Deleting 3:");
         list.display();
     }
+
+    public void insertBulk(int[] arr) {
+        for (int i=0; i<arr.length; i++) {
+            insertAtTail(arr[i]);
+        }
+    }
 }

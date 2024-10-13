@@ -1,6 +1,9 @@
 package LinkedList;
 
 // Remove duplicates from sorted linked list
+// new list should not contain the repeating elements
+// Input: 1->1->2->3->3->4->5->5->6->NULL
+// output: 2->4->6->null
 
 public class removeDuplicatesII {
 
