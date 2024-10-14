@@ -88,4 +88,10 @@ public class CircularLinkedList {
         list.displayCLL();
 
     }
+
+    public void insertBulk(int[] arr) {
+        for(int x: arr) {
+            this.insert(x);
+        }
+    }
 }
