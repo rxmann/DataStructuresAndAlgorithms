@@ -5,7 +5,7 @@ package LinkedList;
 // Custom Linked List class
 public class CustomLinkedList {
 
-    Node head;
+    public Node head;
 
     // Insert at the head
     public void insertAtHead(int data) {
