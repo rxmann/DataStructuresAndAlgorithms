@@ -5,8 +5,8 @@ public class palindrome {
     public static void main(String[] args) {
         String str = "0P";
         boolean ans = checkPalindrome(str);
-        System.out.println(Character.isAlphabetic('0'));
         System.out.println(ans ? "yes" : "no");
+        System.out.println(Character.isLetterOrDigit('$'));
     }
 
     private static boolean checkPalindrome(String str) {

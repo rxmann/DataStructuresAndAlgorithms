@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 public class merge {
     public static void main(String[] args) {
-        int[] arr = {3, 5, 4, 1, 2};
+        int[] arr = {3, 5, 4, 1, 2, 6};
         mergeSortRecursion(arr, 0, arr.length - 1);
         System.out.println(Arrays.toString(arr));
     }
@@ -27,7 +27,7 @@ public class merge {
 
     private static void mergeTwoSortedArrs (int[] arr, int start, int mid, int end) {
 
-        if (start > end) return;
+        // if (start >= end) return;
 
         // copy the ranges into new arrays
         int[] arr1 = new int[mid - start + 1];

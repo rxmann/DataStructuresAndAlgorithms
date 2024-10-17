@@ -59,6 +59,7 @@ public class sort012 {
                 arr[mid] = temp;
                 end--;
             }
+            System.out.println(Arrays.toString(arr));
 
         }
     }

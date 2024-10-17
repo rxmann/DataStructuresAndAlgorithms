@@ -5,7 +5,7 @@ import java.util.Arrays;
 public class checkRotatedAndSorted {
 
     public static void main(String[] args) {
-        int[] arr = {2,1,3,4};
+        int[] arr = {5, 6, 1, 2, 4};
 
         boolean ans = checkIfArrSortedAndRotated (arr);
 

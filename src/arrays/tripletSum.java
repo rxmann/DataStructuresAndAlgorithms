@@ -11,7 +11,7 @@ public class tripletSum {
 
     public static void main(String[] args) {
 
-        int[] arr1 = {-1,0,1,2,-1,-4};
+        int[] arr1 = {-1,0,1,2,1,-2};
 
         List<List<Integer>> res = tripletSumOptimized (arr1);
 
@@ -22,6 +22,7 @@ public class tripletSum {
     public static List<List<Integer>> tripletSumOptimized (int[] arr) {
 
         Arrays.sort(arr);
+        System.out.println(Arrays.toString(arr));
 
         List<List<Integer>> res = new ArrayList<>();
 
@@ -32,7 +33,7 @@ public class tripletSum {
             if (i > 0 && arr[i] == arr[i-1] ) {
                 continue;
             }
-
+            System.out.println(i);
             int j = i+1;
             int k = len-1;
 
@@ -77,6 +78,7 @@ public class tripletSum {
                 }
             }
         }
+        System.out.println(ans);
         return ans;
     }
 }

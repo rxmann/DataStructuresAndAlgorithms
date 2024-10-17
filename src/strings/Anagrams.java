@@ -47,12 +47,8 @@ public class Anagrams {
     }
 
   public static void main(String[] args) {
-    
-        Scanner scan = new Scanner(System.in);
-        String a = scan.next();
-        String b = scan.next();
-        scan.close();
-        boolean ret = isAnagram(a, b);
+
+        boolean ret = isAnagram("people", "people");
         System.out.println( (ret) ? "Anagrams" : "Not Anagrams" );
     }
 }

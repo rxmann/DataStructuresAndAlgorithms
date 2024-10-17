@@ -24,5 +24,16 @@ public class powerOf {
         return ans;
     }
 
+//    int ans;
+//
+//        if (n%2 == 0) {
+//        ans = xPowerN(x, n/2) * xPowerN(x, n/2);
+//    }
+//        else {
+//        ans = xPowerN(x, n/2) * xPowerN(x, n/2) * x;
+//    }
+//
+//        return ans;
+
 
 }

@@ -4,7 +4,7 @@ public class sayDigits {
 
     public static void main(String[] args) {
         String[] numbers = {"Zero", "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine"};
-        digitsToString(numbers, 246);
+        digitsToString(numbers, 206);
     }
 
     private static void digitsToString(String[] numbers, int n) {

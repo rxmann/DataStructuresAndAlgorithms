@@ -4,8 +4,8 @@ public class swapAlternate {
 
     static void swapAlternateInArr (int[] arr) {
         int len = arr.length - 1;
-        for (int i=0; i<len; i+=2) {
-            if (i+1 >= len) break;
+        for (int i=0; i<len-1; i+=2) {
+//            if (i+1 >= len) break;
             int temp = arr[i];
             arr[i] = arr[i+1];
             arr[i+1] = temp;

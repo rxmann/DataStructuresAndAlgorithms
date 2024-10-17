@@ -6,7 +6,7 @@ public class removeOccurrence {
         String str = "aabababa";
         String subStr = "aba";
 
-        String newStr = removeFromUsingStack (str, subStr);
+        String newStr = removeFrom (str, subStr);
         System.out.println("New String: " + newStr);
 
     }
@@ -34,7 +34,7 @@ public class removeOccurrence {
 
         int index = s.indexOf(part);
         while (index != -1) {
-            System.out.println(s.substring(0, index) +" "+ s.substring(index + part.length()));
+            // System.out.println(s.substring(0, index) +" "+ s.substring(index + part.length()));
             s = s.substring(0, index) + s.substring(index + part.length());
             index = s.indexOf(part);
         }

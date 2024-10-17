@@ -1,11 +1,15 @@
 package strings;
 
+import java.util.Arrays;
+
 public class compression {
 
 
     public static void main(String[] args) {
-        char[] arr = {'a','a','b','b','c','c','c'};
+        char[] arr = {'a','a', 'a','b','b','c','c', 'c','c','c','c','c','c','c','c','c','c'};
         int ans = compress(arr);
+        String answer = Arrays.toString(Arrays.copyOf(arr, ans));
+        System.out.println(answer);
         System.out.println(ans);
     }
 
@@ -25,7 +29,6 @@ public class compression {
             while (countIdx < n && chars[i] == chars[countIdx]) {
                 countIdx++;
             }
-
             // Either completed traversal or found unique
             // countIdx is last non-repeating characters for i
             // countIdx - i is frequency of repeating character at index i

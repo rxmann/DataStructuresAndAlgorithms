@@ -26,10 +26,10 @@ public class ratInMaze {
     }
 
     private static void solveRatInMaze(int[][] matrix, int rowSize, int columnSize, ArrayList<String> result, String path, int x, int y, boolean[][] visited) {
-        System.out.println("solveRatInMaze(matrix, " + rowSize + ", " + columnSize + ", result, \"" + path + "\", " + x + ", " + y + ", visited);");
+        // System.out.println("solveRatInMaze(matrix, " + rowSize + ", " + columnSize + ", result, \"" + path + "\", " + x + ", " + y + ", visited);");
         // base case
         if ( x == rowSize-1 && y == columnSize-1) {
-            System.out.println("Destination Reached!!!");
+            // System.out.println("Destination Reached!!!");
             result.add(path);
             return;
         }

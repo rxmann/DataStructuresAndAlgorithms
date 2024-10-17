@@ -24,7 +24,7 @@ public class subSequences {
             return;
         }
 
-        // exclude
+        // excludes
         solve(str, idx+1, output, sequence);
         // include
         sequence += (str.charAt(idx));

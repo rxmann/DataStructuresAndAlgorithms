@@ -11,7 +11,7 @@ public class SmallAndLargeSubstring {
         // Complete the function
         // 'smallest' must be the lexicographically smallest substring of length 'k'
         // 'largest' must be the lexicographically largest substring of length 'k'
-        for (int i=0; i<s.length() - (k-1); i++) {
+        for (int i=0; i<s.length() - (k); i++) {
                 String temp = s.substring(i, i+k); 
                 int checks = temp.compareTo(smallest);
                 int checkl = temp.compareTo(largest);
@@ -30,11 +30,7 @@ public class SmallAndLargeSubstring {
 
 
     public static void main(String[] args) {
-        Scanner scan = new Scanner(System.in);
-        String s = scan.next();
-        int k = scan.nextInt();
-        scan.close();
       
-        System.out.println(getSmallestAndLargest(s, k));
+        System.out.println(getSmallestAndLargest("appple", 3));
     }
 }

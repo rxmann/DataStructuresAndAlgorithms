@@ -27,23 +27,21 @@ public class bubble {
                     arr[j+1] = temp;
                     swapped = true;
                 }
-                System.out.println(j + " : " + Arrays.toString(arr));
             }
-            System.out.println();
             if (!swapped) break;
         }
     }
 
     // recursive approach
-    private static void bubbleSortRecursion (int[] arr, int idx) {
+    private static void bubbleSortRecursion (int[] arr, int n) {
 
         // base case
-        if (idx <= 1 ) {
+        if (n <= 1 ) {
             return;
         }
 
         boolean swapped = false;
-        for (int i=0; i<idx-1; i++) {
+        for (int i=0; i<n-1; i++) {
             if (arr[i] > arr[i+1]) {
                 // swap
                 swapped = true;
@@ -57,7 +55,7 @@ public class bubble {
 
         if (!swapped) return;
 
-        bubbleSortRecursion(arr, --idx);
+        bubbleSortRecursion(arr, n-1);
     }
 
 

@@ -35,7 +35,7 @@ public class reverseWords {
         for (int i=words.length - 1; i>=0; i--) {
             sb.append(words[i]);
             
-            if (i > 0) {
+            if (i != 0) {
                 sb.append(" ");
             }
             
