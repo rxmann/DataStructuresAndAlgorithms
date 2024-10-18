@@ -51,22 +51,42 @@ public class CloneLinkedListII {
             temp = temp.next;
         }
 
-        // create a map to store the random of every nodes
-        Map<ListNode, ListNode> map = new HashMap<>();
+        // time to make a new list by merging clone to original
         temp = head;
         clone = cloneHead.next;
-        while (temp != null && clone != null) {
-            map.put(temp, clone);
-            clone = clone.next;
-            temp = temp.next;
+
+        ListNode tempNext = null;
+        ListNode cloneNext = null;
+
+        while (temp != null) {
+
+            tempNext = temp.next;
+            cloneNext = clone.next;
+
+            temp.next = clone;
+            clone.next = tempNext;
+
+            clone = cloneNext;
+            temp = tempNext;
         }
 
-        // arrange the random pointers
+        // assign the randoms
         temp = head;
         clone = cloneHead.next;
 
-        while (temp != null && clone != null) {
-            clone.random = map.get(temp.random);
+        while (temp != null && temp.next != null) {
+            temp.next.random = temp.random.next;
+            temp = temp.next.next;
+        }
+
+        // revert the clone and original links
+        temp = head;
+        clone = cloneHead.next;
+
+        while (temp.next != null && clone.next != null) {
+            temp.next = temp.next.next;
+            clone.next = clone.next.next;
+
             clone = clone.next;
             temp = temp.next;
         }
