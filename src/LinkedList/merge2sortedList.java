@@ -15,7 +15,7 @@ public class merge2sortedList {
 
 
         CustomLinkedList resultList = new CustomLinkedList();
-        resultList.head = mergeTwoSortedList (list1, list2);
+        resultList.head = mergeTwoSortedList (list1.head, list2.head);
 
         System.out.println("Merged list");
         resultList.display();
@@ -24,13 +24,10 @@ public class merge2sortedList {
 
 
     // merge two sorted list and return the head of the new merged list
-    private static Node mergeTwoSortedList(CustomLinkedList list1, CustomLinkedList list2) {
+    static Node mergeTwoSortedList(Node l1, Node l2) {
 
-        if (list1 == null ) return list2.head;
-        if (list2 == null) return list1.head;
-
-        Node l1 = list1.head;
-        Node l2 = list2.head;
+        if (l1 == null ) return l2;
+        if (l2 == null) return l1;
 
         // Create a dummy node to simplify the merge process
         Node dummy = new Node(-1);
