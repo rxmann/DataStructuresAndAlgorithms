@@ -19,7 +19,7 @@ public class insertBottom {
 
     }
 
-    private static void insertAtStkBottom(Stack<Integer> stack, int num) {
+    static void insertAtStkBottom(Stack<Integer> stack, int num) {
 
         if (stack.isEmpty() ) {
             stack.push(num);

@@ -5,7 +5,8 @@ import java.util.Stack;
 public class validParenthesis {
 
     public static void main(String[] args) {
-        boolean result = isValidParenthesis("}])]");
+//        boolean result = isValidParenthesis("}])]");
+        boolean result = isValid ("}])]");
 
         System.out.println("Is valid Parenthesis? " + result );
     }
@@ -41,4 +42,24 @@ public class validParenthesis {
         return stk.isEmpty();
 
     }
+
+
+    public static boolean isValid(String s) {
+        Stack<Character> stack = new Stack<Character>();
+        for (char c : s.toCharArray())
+        {
+            if (c == '(')
+                stack.push(')');
+            else if(c == '{')
+                stack.push('}');
+            else if(c == '[')
+                stack.push(']');
+            else if (stack.isEmpty() || stack.pop() != c)
+                return false;
+        }
+        return stack.isEmpty();
+    }
+
+
+
 }
