@@ -25,14 +25,37 @@ public class smallerNextElement {
 
         for (int i=n-1; i>=0; i--) {
             int num = arr.get(i);
-            while (!stack.isEmpty() && stack.peek() >= num) {
+            while (!stack.isEmpty() && stack.peek() != -1 && arr.get(stack.peek()) >= num) {
                 stack.pop();
             }
             ans.add(0, stack.peek());
-            stack.push(num);
+            stack.push(i);
         }
 
 
         return ans;
     }
+
+
+    static ArrayList<Integer> previousSmallerElement(List<Integer> arr, int n){
+
+        Stack<Integer> stack = new Stack<>();
+        ArrayList<Integer> ans = new ArrayList<>();
+        stack.push(-1);
+
+        for (int i=0; i<n; i++) {
+            int num = arr.get(i);
+            while (!stack.isEmpty() && stack.peek() != -1 && arr.get(stack.peek()) >= num) {
+                stack.pop();
+            }
+            ans.add(0, stack.peek());
+            stack.push(i);
+        }
+
+
+        return ans;
+    }
+
+
+
 }
