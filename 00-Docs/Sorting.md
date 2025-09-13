@@ -1,56 +1,92 @@
+# Sorting Algorithms
 
-# Sorting Algorithm
+Sorting is the process of arranging a collection of data elements in a specific order, either ascending or descending. Some sorting algorithms are **stable**, meaning that equal elements maintain their relative order in the sorted output.
 
-Arranging a collection of data elements in a specific order. 
-Some sorting algorithm's list:
-- Selection Sort
-- Bubble Sort
-- Insertion Sort
-- Merge Sort
-- Quick Sort
-- Heap Sort
-- Radix Sort
+---
 
-**Stable sorting:**
-Stable sorting is a property of sorting algorithms where the relative order of equal elements in the input is preserved in the sorted output. In simpler terms, if you have two elements with the same value in your input data, a stable sorting algorithm ensures that the element that appeared first in the input will still appear first in the sorted result.
+## 1. Selection Sort
 
-## Selection Sorting 
+Selection Sort is simple but not efficient for large datasets. It works by repeatedly selecting the smallest (or largest) element from the unsorted portion and placing it at the beginning of the sorted portion.
 
-Selection sort is simple but not efficient algorithm for huge data. It works by selecting the smallest/largest element in the unsorted portion of the array and assigning it with the current index (i.e. beginning) of the sorted portion. Double for-loops making the time complexity to 0(n^2) which is the worst of all and space complexity of O(1);
+- **Time Complexity:** O(n²)
+- **Space Complexity:** O(1)
+- **Use Case:** Small arrays, memory-limited environments
 
-**Usecase:** Small array size, Memory limit
+**How it Works:**
 
-- Steps:
-  1. Start iterating with the first array. [i = 0]
-  2. Initialize first element as the minimum index. min = i;
-  3. Iterate again from the index greater that i. [j = i+1]
-  3. If the element at j is smaller that element at i, update the value of min. [min = j]
-  5. Swap the minimum value found in the sub-loop with the current i value. swap(arr[ i ], arr[ min ])
+1. Find the minimum element in the unsorted portion of the array.
+2. Swap it with the first element of the unsorted portion.
+3. Move the boundary between sorted and unsorted portions one element forward.
+4. Repeat until the entire array is sorted.
 
-## Bubble Sort
+---
 
-Bubble sort is a straight forward yet efficient sorting algorithm. It operates by repeatedly comparing adjacent elements in an array and swapping them if they are out of order. It has the time Complexity of O(n^2) and space complexity of O(1). It has more number of swaps than selection sort.
+## 2. Bubble Sort
 
-**Usecase:** Small array size, Memory limit
+Bubble Sort repeatedly compares adjacent elements and swaps them if they are in the wrong order.
 
--Steps:
-1. Start iterating from the first element (i = 0).
-2. For each element (i), iterate again from the next element (j = 0 to j < n - i - 1).
-3. If the element at position j is smaller than the element at position i, swap them.
-4. Repeat steps 1-3 until no more swaps are made in a pass. This indicates that the array is sorted.
+- **Time Complexity:** O(n²)
+- **Space Complexity:** O(1)
+- **Use Case:** Small arrays, educational purposes
 
+**How it Works:**
 
-## Insertion Sort
+1. Start from the first element of the array.
+2. Compare each pair of adjacent elements and swap them if they are out of order.
+3. After each pass, the largest unsorted element “bubbles” to its correct position.
+4. Repeat passes until no swaps occur in a pass.
 
-Insertion Sort is a simple and efficient sorting algorithm. It works by dividing the input array into a sorted and an unsorted region. The algorithm iterates through the unsorted region, taking one element at a time and inserting it into the correct position within the sorted region. 
+---
 
-Insertion Sort has a time complexity of O(n^2), making it less efficient for large datasets but quite efficient for small or nearly sorted arrays. Its space complexity is O(1) since it doesn't require additional memory beyond the original array.
+## 3. Insertion Sort
 
-**Usecase:** Small or nearly sorted arrays, Memory limit
+Insertion Sort builds a sorted portion of the array one element at a time by inserting each element into its correct position.
 
--Steps:
-- Start with the second element (i = 1) in the array.
-- Take the current element (key) and compare it to the elements in the sorted region on the left.
-- Shift the elements in the sorted region that are greater than the key to the right.
-- Insert the key into its correct position within the sorted region.
-- Repeat steps 1-4 for all elements in the array, gradually expanding the sorted region until the entire array is sorted.
+- **Time Complexity:** O(n²)
+- **Space Complexity:** O(1)
+- **Use Case:** Small or nearly sorted arrays
+
+**How it Works:**
+
+1. Divide the array into sorted and unsorted regions.
+2. Take the first element from the unsorted region.
+3. Compare it with elements in the sorted region and shift larger elements to the right.
+4. Insert the element in its correct position in the sorted region.
+5. Repeat until the unsorted region is empty.
+
+---
+
+## 4. Merge Sort
+
+Merge Sort is an efficient, divide-and-conquer algorithm that divides the array, sorts the halves, and merges them.
+
+- **Time Complexity:** O(n log n)
+- **Space Complexity:** O(n)
+- **Use Case:** Large datasets
+
+**How it Works:**
+
+1. Divide the array into two halves.
+2. Recursively sort the left half.
+3. Recursively sort the right half.
+4. Merge the two sorted halves into a single sorted array.
+5. Repeat until the entire array is merged and sorted.
+
+---
+
+## 5. Quick Sort
+
+Quick Sort is a highly efficient, divide-and-conquer algorithm. It partitions the array around a pivot element and recursively sorts the partitions.
+
+- **Time Complexity:** O(n log n) on average, O(n²) worst case
+- **Space Complexity:** O(log n)
+- **Use Case:** Large datasets, efficient average-case sorting
+
+**How it Works:**
+
+1. Choose a pivot element from the array.
+2. Partition the array into two parts: elements smaller than the pivot on the left, elements larger than the pivot on the right.
+3. Recursively apply Quick Sort to the left partition.
+4. Recursively apply Quick Sort to the right partition.
+5. Repeat until all partitions are sorted.
+
